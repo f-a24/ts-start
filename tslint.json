@@ -1,0 +1,8 @@
+{
+  "rulesDirectory": ["tslint-plugin-prettier"],
+  "extends": ["tslint-config-airbnb-base", "tslint-config-prettier"],
+  "rules": {
+    "variable-name": [true, "ban-keywords", "check-format", "allow-pascal-case"],
+    "prettier": [true, { "singleQuote": true }]
+  }
+}

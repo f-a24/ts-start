@@ -10,6 +10,20 @@ module.exports = {
       {
         test: /\.ts$/,
         use: 'ts-loader'
+      },
+      {
+        test: /\.(css|scss)$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [require('autoprefixer')({ grid: true })]
+            }
+          },
+          'sass-loader'
+        ]
       }
     ]
   },

@@ -1,5 +1,8 @@
+const Sass = require('sass');
+const Fiber = require('fibers');
+
 module.exports = {
-  mode: 'production',
+  mode: process.env.WEBPACK_DEV_SERVER ? 'development' : 'production',
   entry: `${__dirname}/src/ts/index.ts`,
   output: {
     path: `${__dirname}/public`,
@@ -22,7 +25,15 @@ module.exports = {
               plugins: [require('autoprefixer')({ grid: true })]
             }
           },
-          'sass-loader'
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: Sass,
+              sassOptions: {
+                fiber: Fiber,
+              }
+            }
+          }
         ]
       }
     ]

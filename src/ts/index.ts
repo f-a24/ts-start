@@ -1,8 +1,5 @@
+import app from './app';
 import 'reset-css';
 import '../scss/style.scss';
 
-(() => {
-  const h1 = document.createElement('h1');
-  h1.innerText = 'Hello World!';
-  document.body.appendChild(h1);
-})();
+document.body.appendChild(app('Hello World!'));
